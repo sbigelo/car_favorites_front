@@ -7,6 +7,7 @@
 </head>
 
 <body>
+   <!-- <form>
     <label>Super Cars:</label>
     <select name="" id="supercars"></select>
     <label>Hyper Cars:</label>
@@ -14,27 +15,32 @@
     <label>Regular Cars:</label>
     <select name="" id="regularcars"></select>
 
-    <button id="createCars">Submit</button>
+    <button id="createCars">Submit</button> 
+    </form> -->
 
-    <div id="dailyFavorites"></div>
 
-    <form id="newCar">
+    <div id="carContainer"></div>
+   
+<div class="new-car-container">
+    <form id="newCars">
         <label for="car">New Car</label>
-        <input type="text" name="car" id="car">
+        <input type="text" name="car" id="car" value="" placeholder="Enter a new car">
+
         <select name="favoriteSelect" id="favoriteSelect">
             <option value="supercars">Super Cars</option>
             <option value="hypercars">Hyper Cars</option>
             <option value="regularcars">Regular Cars</option>
         </select>
-        <input type="submit">
-    </form>
+        <input id="create-button" type="submit" name="submit" class="submit" value="Create New Car">
+</form>
+    
 
 
 
-    <script src="src/dailyFavorites.js"></script>
-    <script src="src/favorite.js"></script>
+    <!-- <script src="src/dailyFavorites.js"></script> -->
+    <!-- <script src="src/favorite.js"></script> -->
     <script src="src/car.js"></script>
-    <script src="src/appContainer.js"></script>
+    <!-- <script src="src/appContainer.js"></script> -->
     <script src="src/index.js"></script>
 
     <h1>Hello</h1>
