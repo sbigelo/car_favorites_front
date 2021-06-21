@@ -12,7 +12,7 @@ class Car {
          <div data-id=${this.id}>
             <p>${this.name}</p>
             <p>${this.favorite.name}</p>
-            <button data-action='delete'>Delete</button>
+            <button data-action='delete' type="submit" name="submit" class="submit">Delete</button>
         </div>
         <br><br>
         `

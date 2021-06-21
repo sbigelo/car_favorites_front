@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const newCars = document.getElementById('newCars')
 
     newCars.addEventListener('submit', this.createFormHandler.bind(this))
+
+    const carContainer = document.getElementById('carContainer')
+
+    carContainer.addEventListener('click', deleteCars)
 });
 
 function getCars() {
@@ -31,7 +35,7 @@ function createFormHandler(e) {
 }
 
 function postFetch(name, favorite_id) {
-  debugger
+ 
   
   
   const favoriteID = document.getElementById('favoriteSelect').value
@@ -53,22 +57,20 @@ function postFetch(name, favorite_id) {
         let carContainer = document.getElementById('carContainer')
         let newCar = new Car(cart.id, cart.name, cart.favorite)
         console.log(cart)
-        // console.log()
+        
         carContainer.innerHTML += newCar.renderCars()
         
     })
 }
 
 
-// cars.forEach(car => {
-//     let newCar = new Car(car.id, car.name, car.favorite)
-//     document.getElementById('carContainer').innerHTML += newCar.renderCars()
-// })
+function deleteCars(e) {
+    e.preventDefault();
+    const id = e.target.parentElement.dataset.id
+    const url = link + "/" + id
+    fetch(url, {
+        method: "DELETE"
+    })
+    e.target.parentElement.remove()
+}
 
-
-
-    // .then(resp => resp.json())
-    // .then(data => {
-
-    //     new Car(data.id, data.name, data.favorite)
-    // })
