@@ -64,12 +64,17 @@ function postFetch(name, favorite_id) {
 
 function deleteCars(e) {
     e.preventDefault();
+
     const id = e.target.parentElement.dataset.id
     const url = link + "/" + id
+
+    if (e.target.nodeName == "BUTTON") {  
     e.target.parentElement.remove()
     fetch(url, {
         method: "DELETE"
     })
+    }
+    
     
 }
 
