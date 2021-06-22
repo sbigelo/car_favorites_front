@@ -1,8 +1,8 @@
 class Car {
     constructor(id, name, favorite) {
+        this.id = id;
         this.name = name;
         this.favorite = favorite;
-        this.id = id;
         Car.all.push(this);
     }
 
@@ -12,7 +12,7 @@ class Car {
          <div data-id=${this.id}>
             <p>${this.name}</p>
             <p>${this.favorite.name}</p>
-            <button data-action='delete' type="submit" name="submit" class="submit">Delete</button>
+            <button data-action='delete' id="delete">Delete</button>
         </div>
         <br><br>
         `

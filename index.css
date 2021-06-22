@@ -1,0 +1,14 @@
+#carContainer > div {
+    display: inline-block;
+    text-align: center;
+    border: 2px solid black;
+    width: 105px;
+    height: inherit;
+ 
+}
+
+body {
+    text-align: center;
+   background-color: rgb(93, 125, 157);
+}
+

@@ -53,11 +53,9 @@ function postFetch(name, favorite_id) {
         })
     })
     .then(resp => resp.json())
-    .then(cart => {
+    .then(car => {
         let carContainer = document.getElementById('carContainer')
-        let newCar = new Car(cart.id, cart.name, cart.favorite)
-        console.log(cart)
-        
+        let newCar = new Car(car.id, car.name, car.favorite)
         carContainer.innerHTML += newCar.renderCars()
         
     })
@@ -68,9 +66,10 @@ function deleteCars(e) {
     e.preventDefault();
     const id = e.target.parentElement.dataset.id
     const url = link + "/" + id
+    e.target.parentElement.remove()
     fetch(url, {
         method: "DELETE"
     })
-    e.target.parentElement.remove()
+    
 }
 
