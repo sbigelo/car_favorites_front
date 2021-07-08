@@ -9,7 +9,7 @@ class Car {
     renderCars() {
         
         return `
-         <div data-id=${this.id}>
+         <div data-id=${this.id} id=${this.id}.div>
             <p>${this.name}</p>
             <p>${this.favorite.name}</p>
             <button data-action='delete' id="delete">Delete</button>
@@ -18,6 +18,23 @@ class Car {
         `
 
     }
+
+
+makeCarDivs() {
+    carContainer.insertAdjacentHTML("beforeend", newCar.renderCars())
+    const createButton = document.createElement('button')
+    createButton.innerHTML = 'Add 1'
+    document.getElementById(`${newCar.id}.div`).insertAdjacentElement('beforeend', createButton)
+    const createP = document.createElement('p')
+    document.getElementById(`${newCar.id}.div`).insertAdjacentElement('beforeend', createP)
+    createP.innerHTML = '0'
+    createButton.addEventListener('click', likeIncrement)
+
+    const createSubtractButton = document.createElement('button')
+    createSubtractButton.innerHTML = 'Subtract 1'
+    document.getElementById(`${newCar.id}.div`).insertAdjacentElement('beforeend', createSubtractButton)
+    createSubtractButton.addEventListener('click', likeDecrease)
+}
 
 
     // renderCars() {
@@ -55,11 +72,13 @@ class Car {
 
 
 
-    static byFavorite(favoriteName) {
-        return AppContainer.cars.filter(car => car.favorite.name === favoriteName)
-    }
+    // static byFavorite(favoriteName) {
+    //     return AppContainer.cars.filter(car => car.favorite.name === favoriteName)
+    // }
 
 
 }
+
+
 
 Car.all = []
