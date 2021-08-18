@@ -1,4 +1,4 @@
 # Instructions
 
-- npm isntall
+- npm install
 - npm start
