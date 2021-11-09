@@ -17,8 +17,8 @@ class Car {
              <button id="starButton" class="button" type="button">Star</button>
              <br><br>
              <p id="likeCount">0</p>
-             <button id="likeButton" class="button" type="button">Like</button>
-             <button id="dislikeButton" class="button" type="button">Dislike</button>
+             <button id="likeButton" class="button" type="button">UpVote</button>
+             <button id="dislikeButton" class="button" type="button">DownVote</button>
              <ul></ul>
         </div>
         `

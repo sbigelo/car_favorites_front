@@ -88,8 +88,15 @@ function likeDecrease(e) {
 }
 
 function addStar(e) {
-    console.log(e.target.previousElementSibling)
-    e.target.previousElementSibling.innerHTML = "&#11088"
+    // let starOrNot = e.target.previousElementSibling.innerHTML
+    console.log(e.target)
+    if (e.target.previousElementSibling.innerHTML === "") {
+        e.target.previousElementSibling.innerHTML = "&#11088"
+        e.target.innerHTML = "UnStar"
+    } else {
+        e.target.previousElementSibling.innerHTML = ""
+        e.target.innerHTML = "Star"
+    }
 }
 
 
