@@ -1,14 +1,32 @@
 #carContainer > div {
     display: inline-block;
     text-align: center;
-    border: 2px solid black;
-    width: 105px;
+    border: 3px solid #000000;
+    width: 200px;
     height: inherit;
- 
+    min-height: 300px;
+    /* max-inline-size: 250px; */
+    background: rgb(103, 100, 100);
+    margin: 5px 5px 20px 5px;
 }
 
 body {
     text-align: center;
    background-color: rgb(93, 125, 157);
+}
+
+.button {
+  color: #fff;
+  background-color: #0000FF;
+}
+
+.button:hover {
+ background: #71b406;
+    border-color: #71b406;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: larger;
 }
 

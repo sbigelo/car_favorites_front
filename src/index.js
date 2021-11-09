@@ -11,40 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const carContainer = document.getElementById('carContainer')
 
     carContainer.addEventListener('click', deleteCars)
+
+    // const sortButton = document.getElementById('sortAllCars')
+
+    // sortButton.addEventListener('click', sortAllCars)
     
-   const sortCars = document.getElementById('sort')
-
-   sortCars.addEventListener('click', sortAllCars)
-
-   
- 
-
 });
 
 function getCars() {
     fetch(link)
     .then(resp => resp.json())
     .then(cars => {
-       
         cars.forEach(car => {
             const carContainer = document.getElementById('carContainer')
             let newCar = new Car(car.id, car.name, car.favorite)
-            // const newCarHtml = newCar.renderCars()
-           
             carContainer.insertAdjacentHTML("beforeend", newCar.renderCars())
-            const createButton = document.createElement('button')
-            createButton.innerHTML = 'Add 1'
-            document.getElementById(`${newCar.id}.div`).insertAdjacentElement('beforeend', createButton)
-            const createP = document.createElement('p')
-            document.getElementById(`${newCar.id}.div`).insertAdjacentElement('beforeend', createP)
-            createP.innerHTML = '0'
-            createButton.addEventListener('click', likeIncrement)
-
-            const createSubtractButton = document.createElement('button')
-            createSubtractButton.innerHTML = 'Subtract 1'
-            document.getElementById(`${newCar.id}.div`).insertAdjacentElement('beforeend', createSubtractButton)
-            createSubtractButton.addEventListener('click', likeDecrease)
-
         })
     })
         .catch(err => console.log(err))
@@ -55,11 +36,9 @@ function createFormHandler(e) {
     const carTitle = document.getElementById('car').value
     const favoriteId = parseInt(document.getElementById('favoriteSelect').value)
     postFetch(carTitle, favoriteId)
-   
 }
 
 function postFetch(name) {
-
   const favoriteID = document.getElementById('favoriteSelect').value
     fetch(link, {
         method: "POST",
@@ -75,52 +54,59 @@ function postFetch(name) {
     .then(resp => resp.json())
     .then(car => {
         const carContainer = document.getElementById('carContainer')
-        const newCar = new Car(car.id, car.name, car.favorite)
+        let newCar = new Car(car.id, car.name, car.favorite)
         carContainer.innerHTML += newCar.renderCars()
-        
     })
 }
 
 
 function deleteCars(e) {
     e.preventDefault();
-
     const id = e.target.parentElement.dataset.id
     const url = link + "/" + id
-
     if (e.target.id === "delete") {  
     e.target.parentElement.remove()
     fetch(url, {
         method: "DELETE"
     })
+    } else if (e.target.id === "starButton") {
+        addStar(e)
+    } else if (e.target.id === "likeButton") {
+        likeIncrement(e)
+    } else if (e.target.id === "dislikeButton"){
+        likeDecrease(e)
+    } else {
     }
 }
 
-
 function likeIncrement(e) {
-
-    e.target.nextElementSibling.innerHTML = parseInt(e.target.nextElementSibling.innerHTML) + 1
-
-    
+    e.target.previousElementSibling.innerHTML = parseInt(e.target.previousElementSibling.innerHTML) + 1
 }
 
 function likeDecrease(e) {
-    console.log(e)
-    
-    e.target.previousElementSibling.innerHTML = parseInt(e.target.previousElementSibling.innerHTML) - 1
+    e.target.previousElementSibling.previousElementSibling.innerHTML = parseInt(e.target.previousElementSibling.previousElementSibling.innerHTML) - 1
+}
+
+function addStar(e) {
+    console.log(e.target.previousElementSibling)
+    e.target.previousElementSibling.innerHTML = "&#11088"
 }
 
 
 function sortAllCars() {
-    
- const sortAll = Car.all.concat([]).sort((a, b) => a.name.localeCompare(b.name))
-    document.getElementById('carContainer').innerHTML = ''
 
-    sortAll.forEach((e) => {
-        e.makeCarDivs()
-        
-    })
+
+    // fetch(link)
+    //     .then(resp => resp.json())
+    //     .then(cars => {
+    //         cars.sort((a, b) => a.name.localeCompare(b.name)).forEach(ca => {
+    //             cars.push(new Car(ca))
+    //             const carContainer = document.getElementById('carContainer')
+    //             carContainer.innerHTML += renderCars(this.notes)
+    //         })
+    //     })
+    //     .catch(err => console.log(err))
+   
 }
-
 
 
