@@ -13,6 +13,10 @@
 body {
     text-align: center;
    background-color: rgb(93, 125, 157);
+   background-image: url("https://autonxt.net/wp-content/uploads/2016/06/autocontentexp.comwp-contentuploads201606Most-Powerful-80063ba6158ce9cd9af1aef9377298f4c2f1bb2c.jpg");
+    background-size: 1400px 1100px;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .button {
@@ -29,4 +33,29 @@ body {
     font-weight: bold;
     font-size: larger;
 }
+
+#title {
+    border: 3px solid #000000;
+    width: 50%;
+    max-width: 300px;
+    background-color: #fff;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    display: table;
+    margin: auto;
+}
+#subTitle {
+    border: 3px solid #000000;
+    background-color: #fff;
+    width: 50%;
+    max-width: 400px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    display: table;
+    margin: auto;
+}
+
+
 
