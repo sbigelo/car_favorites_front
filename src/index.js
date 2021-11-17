@@ -11,10 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const carContainer = document.getElementById('carContainer')
 
     carContainer.addEventListener('click', deleteCars)
-
-    // const sortButton = document.getElementById('sortAllCars')
-
-    // sortButton.addEventListener('click', sortAllCars)
     
 });
 
@@ -88,7 +84,6 @@ function likeDecrease(e) {
 }
 
 function addStar(e) {
-    // let starOrNot = e.target.previousElementSibling.innerHTML
     console.log(e.target)
     if (e.target.previousElementSibling.innerHTML === "") {
         e.target.previousElementSibling.innerHTML = "&#11088"
@@ -99,21 +94,5 @@ function addStar(e) {
     }
 }
 
-
-function sortAllCars() {
-
-
-    // fetch(link)
-    //     .then(resp => resp.json())
-    //     .then(cars => {
-    //         cars.sort((a, b) => a.name.localeCompare(b.name)).forEach(ca => {
-    //             cars.push(new Car(ca))
-    //             const carContainer = document.getElementById('carContainer')
-    //             carContainer.innerHTML += renderCars(this.notes)
-    //         })
-    //     })
-    //     .catch(err => console.log(err))
-   
-}
 
 
